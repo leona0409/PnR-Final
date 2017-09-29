@@ -63,21 +63,22 @@ class Piggy(pigo.Pigo):
         self.toe()
         self.walk()
         self.turn()
+        self.servo(90)
 
     def heel(self):
         """subroutine of dance method"""
         for x in range (3):
-            self.encR(5, m1=0)
+            self.encR(15, m1=0)
 
     def toe(self):
         """subroutine of dance method"""
         for x in range(3):
-            self.encL(10, m2=0)
+            self.encL(15, m2=0)
 
     def walk(self):
         """subroutine of dance method"""
         for x in range(2):
-            self.encR(10)
+            self.encR(20)
 
     def turn(self):
         """subroutine of dance method"""
