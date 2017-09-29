@@ -66,7 +66,7 @@ class Piggy(pigo.Pigo):
         self.servo(40)
         self.walk()
         self.turn()
-        self.servo(90)
+        self.servo(80)
 
     def heel(self):
         """subroutine of dance method"""
