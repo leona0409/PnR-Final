@@ -62,6 +62,8 @@ class Piggy(pigo.Pigo):
         #self.toe()
         self.heel()
         self.toe()
+        self.walk()
+        self.turn()
 
     def heel(self):
         """subroutine of dance method"""
@@ -72,6 +74,17 @@ class Piggy(pigo.Pigo):
         """subroutine of dance method"""
         for x in range(3):
             self.encL(10, m2=0)
+
+    def walk(self):
+        """subroutine of dance method"""
+        for x in range(2):
+            self.encR(10)
+
+    def turn(self):
+        """subroutine of dance method"""
+        for x in range(3):
+            self.encL(15)
+
 
     def nav(self):
         """auto pilots and attempts to maintain original heading"""
