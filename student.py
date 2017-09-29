@@ -71,7 +71,9 @@ class Piggy(pigo.Pigo):
         self.stop()
         time.sleep(2)
         self.turn_to_left()
+        self.go_forward()
         self.turn_to_right()
+        self.go_backwards()
         self.servo(70)
 
     def heel(self):
@@ -93,6 +95,14 @@ class Piggy(pigo.Pigo):
         """subroutine of dance method"""
         for x in range(2):
             self.encB(20)
+
+    def go_backwards(self):
+        for x in range(1):
+            self.encR()
+
+    def go_forwards(self):
+        for x in range(2):
+            self.enL()
 
 
     def nav(self):
