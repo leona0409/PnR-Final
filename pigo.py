@@ -10,6 +10,7 @@ class Pigo(object):
 
     def __init__(self):
         """establishes midpoint, standard stop distance and motor speed then opens menu"""
+        # stores personal stats
         self.MIDPOINT = 90
         self.HARD_STOP_DIST = 10
         self.SAFE_STOP_DIST = 30
@@ -74,18 +75,14 @@ class Pigo(object):
         self.encR(2)
         self.encF(5)
 
-
     def nav(self):
         """auto-pilots, tries to maintain direction while avoid obstacles"""
         print("Parent nav")
 
-
-    ##DANCING IS FOR THE CHILD CLASS
+    # DANCING IS FOR THE CHILD CLASS
     def dance(self):
         """runs a series of methods each animating a dance move"""
         print('Parent dance is lame.')
-
-
 
     ##############################################
     ##### FUNCTIONS NOT INTENDED TO BE OVERWRITTEN
@@ -121,7 +118,6 @@ class Pigo(object):
         left_rot()
         self.turn_track -= enc
         time.sleep(1*(enc/18)+.4)
-
 
     def encB(self, enc):
         """sets an encoder, moves back, sleeps, (18 = 1 wheel rot)"""
