@@ -59,6 +59,7 @@ class Piggy(pigo.Pigo):
         ##### WRITE YOUR FIRST PROJECT HERE
         #self.heel()
         #self.toe()
+        print("about to heel")
         self.heel()
         self.servo(160)
         self.toe()
@@ -70,6 +71,7 @@ class Piggy(pigo.Pigo):
     def heel(self):
         """subroutine of dance method"""
         for x in range (3):
+            print("running heel")
             self.encR(15, m1=0)
 
     def toe(self):
