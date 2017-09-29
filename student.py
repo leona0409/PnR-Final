@@ -60,23 +60,18 @@ class Piggy(pigo.Pigo):
         ##### WRITE YOUR FIRST PROJECT HERE
         #self.heel()
         #self.toe()
-        self.to_the_right()
-        self.turn_to_the_left()
+        self.heel()
+        self.toe()
 
-    def to_the_right(self):
+    def heel(self):
         """subroutine of dance method"""
         for x in range (3):
-            self.encR(10)
-            self.encF(5)
+            self.encR(5, m1=0)
 
-    def to_the_left(self):
+    def toe(self):
         """subroutine of dance method"""
         for x in range(3):
-            self.encL(10)
-            self.encF(5)
-            
-
-
+            self.encL(10, m2=0)
 
     def nav(self):
         """auto pilots and attempts to maintain original heading"""
