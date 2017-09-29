@@ -73,6 +73,7 @@ class Piggy(pigo.Pigo):
         for x in range (3):
             print("running heel")
             self.encR(15, m1=0)
+            self.encF(10)
 
     def toe(self):
         """subroutine of dance method"""
