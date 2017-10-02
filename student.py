@@ -67,7 +67,7 @@ class Piggy(pigo.Pigo):
         self.stop()
         time.sleep(2)
         self.turn_to_left()
-        self.turn_to_right()
+        self.walk_to_right()
         self.servo(70)
 
     def shake_left(self):
