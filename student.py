@@ -53,28 +53,36 @@ class Piggy(pigo.Pigo):
         menu.get(ans, [None, error])[1]()
 
     # YOU DECIDE: How does your GoPiggy dance?
-    def dance(self):
+    def cotton_eye_joe(self):
         """executes a series of methods that add up to a compound dance"""
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
         #self.heel()
         #self.toe()
         print("about to dance")
-        self.servo(40)
-        self.servo(50)
-        self.servo(40)
+        self.shake_left()
         self.heel()
-        self.servo(140)
-        self.servo(130)
-        self.servo(140)
+        self.shake_right()
         self.toe()
         self.stop()
         time.sleep(2)
         self.turn_to_left()
-        self.go_forward()
         self.turn_to_right()
-        self.go_backwards()
         self.servo(70)
+
+    def shake_left(self):
+        """subroutine of dance method"""
+        for x in range(1):
+            self.servo(40)
+            self.servo(50)
+            self.servo(40)
+
+    def shake_right(self):
+        """subroutine of dance method"""
+        for x in range(1):
+            self.servo(140)
+            self.servo(130)
+            self.servo(140)
 
     def heel(self):
         """subroutine of dance method"""
@@ -89,20 +97,13 @@ class Piggy(pigo.Pigo):
     def turn_to_left(self):
         """subroutine of dance method"""
         for x in range(2):
-            self.encF(20)
+            self.encL(20)
 
-    def turn_to_right(self):
+    def walk_to_right(self):
         """subroutine of dance method"""
-        for x in range(2):
-            self.encB(20)
-
-    def go_backwards(self):
         for x in range(1):
-            self.encR()
+            self.encR(20)
 
-    def go_forwards(self):
-        for x in range(2):
-            self.enL()
 
 
     def nav(self):
