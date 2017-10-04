@@ -64,8 +64,11 @@ class Piggy(pigo.Pigo):
             self.heel()
             self.shake_right()
             self.toe()
-            self.pause()
+            self.stop()
+            time.sleep(2)
             self.walk_to_right()
+            self.stop()
+            time.sleep(2)
             self.turn_to_left()
             self.servo(70)
 
