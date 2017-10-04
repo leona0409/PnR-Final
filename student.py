@@ -64,8 +64,7 @@ class Piggy(pigo.Pigo):
             self.heel()
             self.shake_right()
             self.toe()
-            self.stop()
-            time.sleep(2)
+            self.pause()
             self.turn_to_left()
             self.walk_to_right()
             self.servo(70)
@@ -90,7 +89,7 @@ class Piggy(pigo.Pigo):
 
     def shake_right(self):
         """subroutine of dance method"""
-        for x in range(1):
+        for x in range(3):
             self.servo(140)
             self.servo(130)
             self.servo(140)
@@ -107,13 +106,19 @@ class Piggy(pigo.Pigo):
 
     def turn_to_left(self):
         """subroutine of dance method"""
-        for x in range(2):
-            self.encL(20)
+        for x in range(4):
+            self.encL(8)
+            self.encF(10)
 
     def walk_to_right(self):
         """subroutine of dance method"""
         for x in range(1):
-            self.encR(20)
+            self.encR(8)
+            self.encF(20)
+
+    def pause(self):
+        self.stop()
+        time.sleep(2)
 
 
 
