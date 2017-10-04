@@ -72,23 +72,14 @@ class Piggy(pigo.Pigo):
 
     def safety_check(self):
         self.servo(self.MIDPOINT)  # look straight ahead
-        for x in range(8):
+        for loop in range(8):
             if not self.is_clear():
                 print("NOT GOING TO DANCE")
                 return False
             self.encR(4)
-        print ("Check #%d" % x + 1 ) #figure out 90 deg
+            print ("Check #%d" % loop + 1 ) #figure out 90 deg
         print("Safe to dance!")
         return True
-        #if self.dist() < self.SAFE_STOP_DIST:
-            #return False
-        #for x in range(6):
-            #if not self.is_clear():
-                #return False
-            #self.encR(3)
-            #return True
-        # scan again
-
 
     def shake_left(self):
         """subroutine of dance method"""
