@@ -70,7 +70,6 @@ class Piggy(pigo.Pigo):
             self.stop()
             time.sleep(2)
             self.turn_to_left()
-            self.servo(70)
 
     def safety_check(self):
         self.servo(self.MIDPOINT)  # look straight ahead
@@ -87,14 +86,14 @@ class Piggy(pigo.Pigo):
         """subroutine of dance method"""
         for x in range(1):
             self.servo(40)
-            self.servo(50)
+            self.servo(70)
             self.servo(40)
 
     def shake_right(self):
         """subroutine of dance method"""
         for x in range(3):
             self.servo(140)
-            self.servo(130)
+            self.servo(110)
             self.servo(140)
 
     def heel(self):
