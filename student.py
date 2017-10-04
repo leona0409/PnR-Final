@@ -64,11 +64,9 @@ class Piggy(pigo.Pigo):
             self.heel()
             self.shake_right()
             self.toe()
-            self.stop()
-            time.sleep(2)
+            self.pause()
             self.walk_to_right()
-            self.stop()
-            time.sleep(2)
+            self.pause()
             self.turn_to_left()
 
     def safety_check(self):
@@ -115,12 +113,11 @@ class Piggy(pigo.Pigo):
     def turn_to_left(self):
         """subroutine of dance method"""
         for x in range(4):
-            self.encL(22)
+            self.encL(20)
             self.encF(20)
 
     def pause(self):
         """subroutine of dance method"""
-        self.stop()
         time.sleep(2)
 
 
