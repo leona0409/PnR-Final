@@ -76,7 +76,7 @@ class Piggy(pigo.Pigo):
             if not self.is_clear():
                 return False
         print ("Check #%d" % x + 1 )
-        self.encR(8) #figure out 90 deg
+        self.encR(4) #figure out 90 deg
         print("Safe to dance!")
         return True
         #if self.dist() < self.SAFE_STOP_DIST:
