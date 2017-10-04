@@ -74,9 +74,10 @@ class Piggy(pigo.Pigo):
         self.servo(self.MIDPOINT)  # look straight ahead
         for x in range(4):
             if not self.is_clear():
+                print("NOT GOING TO DANCE")
                 return False
-        print ("Check #%d" % x + 1 )
-        self.encR(4) #figure out 90 deg
+            self.encR(4)
+        print ("Check #%d" % x + 1 ) #figure out 90 deg
         print("Safe to dance!")
         return True
         #if self.dist() < self.SAFE_STOP_DIST:
