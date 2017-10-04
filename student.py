@@ -72,15 +72,20 @@ class Piggy(pigo.Pigo):
 
     def safety_check(self):
         self.servo(self.MIDPOINT)  # look straight ahead
-        if self.dist() < self.SAFE_STOP_DIST:
-            return False
-        # loop 6 times
-            # turn 60 degrees
-        for x in range(6):
+        for x in range(4):
             if not self.is_clear():
                 return False
-            self.encR(3)
-            return True
+        print ("Check #%d" % x + 1 )
+        self.encR(8) #figure out 90 deg
+        print("Safe to dance!")
+        return True
+        #if self.dist() < self.SAFE_STOP_DIST:
+            #return False
+        #for x in range(6):
+            #if not self.is_clear():
+                #return False
+            #self.encR(3)
+            #return True
         # scan again
 
 
