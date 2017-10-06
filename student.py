@@ -60,7 +60,7 @@ class Piggy(pigo.Pigo):
         ##### WRITE YOUR FIRST PROJECT HERE
         if self.safety_check():
             print("About to dance")
-           self.shake_left()
+            self.shake_left()
             self.heel()
             self.shake_right()
             self.toe()
