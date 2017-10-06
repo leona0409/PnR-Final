@@ -97,23 +97,26 @@ class Piggy(pigo.Pigo):
 
     def heel(self):
         """subroutine of dance method"""
+        # makes the robot go forward
         for x in range (3):
-            self.encF(10)
+            self.encF(2)
 
     def toe(self):
         """subroutine of dance method"""
-        # makes the robot go forward
+        # makes the robot go backwards
         for x in range(3):
-            self.encB(10)
+            self.encB(2)
 
     def walk_to_right(self):
         """subroutine of dance method"""
+        #turn to right and go forward
         for x in range(1):
             self.encR(8)
             self.encF(30)
 
     def turn_to_left(self):
         """subroutine of dance method"""
+        #turns 180, goes forward
         for x in range(4):
             self.encL(17)
             self.encF(20)
