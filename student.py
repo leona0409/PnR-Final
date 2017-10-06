@@ -67,10 +67,11 @@ class Piggy(pigo.Pigo):
            # self.pause()
             #self.look_forward()
             #self.walk_to_right()
-            self.turn_to_left()
+            #self.turn_to_left()
             #self.shake_left()
            # self.shake_right()
             #self.look_forward()
+            self.swing()
             #self.ending_flourish()
 
     def safety_check(self):
@@ -138,6 +139,15 @@ class Piggy(pigo.Pigo):
         for x in range(3):
             self.encR(27)
         print("Thank you for watching")
+
+    def swing(self):
+        """subroutine of dance method"""
+        #turns slightly to the left as head turns right, then turns to right as head turns left
+        for x in range(3):
+            self.encR(4)
+            self.servo(20)
+            self.encL(4)
+            self.servo(200)
 
 
     def nav(self):
