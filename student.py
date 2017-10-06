@@ -68,6 +68,7 @@ class Piggy(pigo.Pigo):
             self.look_forward()
             self.walk_to_right()
             self.turn_to_left()
+            self.ending_flourish()
 
     def safety_check(self):
         self.servo(self.MIDPOINT)  # look straight ahead
