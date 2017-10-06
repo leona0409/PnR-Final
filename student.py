@@ -147,7 +147,7 @@ class Piggy(pigo.Pigo):
             self.encR(4)
             self.servo(20)
             self.encL(4)
-            self.servo(200)
+            self.servo(100)
 
 
     def nav(self):
