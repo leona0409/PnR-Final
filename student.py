@@ -81,14 +81,14 @@ class Piggy(pigo.Pigo):
         print("Safe to dance!")
         return True
 
-    def shake_left(self):
+    def shake_right(self):
         """subroutine of dance method"""
         for x in range(3):
             self.servo(20)
             self.servo(50)
             self.servo(20)
 
-    def shake_right(self):
+    def shake_left(self):
         """subroutine of dance method"""
         for x in range(3):
             self.servo(130)
@@ -118,7 +118,7 @@ class Piggy(pigo.Pigo):
         """subroutine of dance method"""
         #turns 180, goes forward
         for x in range(4):
-            self.encL(17)
+            self.encL(8)
             self.encF(20)
 
     def pause(self):
