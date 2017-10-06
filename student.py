@@ -118,7 +118,7 @@ class Piggy(pigo.Pigo):
         """subroutine of dance method"""
         #turns 180, goes forward
         for x in range(4):
-            self.encL(20)
+            self.encL(27)
             self.encF(20)
 
     def pause(self):
@@ -133,7 +133,7 @@ class Piggy(pigo.Pigo):
         """subroutine of dance method"""
         #spin around multiple times
         for x in range(3):
-            self.encR(26)
+            self.encR(27)
 
 
     def nav(self):
