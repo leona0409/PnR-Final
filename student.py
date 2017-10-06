@@ -144,9 +144,9 @@ class Piggy(pigo.Pigo):
         """subroutine of dance method"""
         #turns slightly to the left as head turns right, then turns to right as head turns left
         for x in range(3):
-            self.encR(4)
+            self.encR(6)
             self.servo(20)
-            self.encL(4)
+            self.encL(6)
             self.servo(100)
 
 
