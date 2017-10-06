@@ -67,7 +67,7 @@ class Piggy(pigo.Pigo):
            # self.pause()
             #self.look_forward()
             #self.walk_to_right()
-           self.turn_to_left()
+            self.turn_to_left()
             #self.shake_left()
            # self.shake_right()
             #self.look_forward()
