@@ -68,6 +68,8 @@ class Piggy(pigo.Pigo):
             self.look_forward()
             self.walk_to_right()
             self.turn_to_left()
+            self.shake_left()
+            self.shake_right()
             self.ending_flourish()
 
     def safety_check(self):
