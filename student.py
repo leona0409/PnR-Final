@@ -79,7 +79,7 @@ class Piggy(pigo.Pigo):
             if not self.is_clear():
                 print("NOT GOING TO DANCE")
                 return False
-            self.encR(3)
+            self.encR(4)
             print ("Check #%d" % (loop + 1))  # figure out 90 deg
         print("Safe to dance!")
         return True
@@ -137,6 +137,7 @@ class Piggy(pigo.Pigo):
         #spin around multiple times
         for x in range(3):
             self.encR(27)
+        print("Thank you for watching")
 
 
     def nav(self):
