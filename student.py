@@ -67,7 +67,6 @@ class Piggy(pigo.Pigo):
             self.pause()
             self.look_forward()
             self.walk_to_right()
-            self.pause()
             self.turn_to_left()
 
     def safety_check(self):
@@ -118,7 +117,7 @@ class Piggy(pigo.Pigo):
         """subroutine of dance method"""
         #turns 180, goes forward
         for x in range(4):
-            self.encL(8)
+            self.encL(16)
             self.encF(20)
 
     def pause(self):
