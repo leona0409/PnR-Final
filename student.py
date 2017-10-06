@@ -70,6 +70,7 @@ class Piggy(pigo.Pigo):
             self.turn_to_left()
             self.shake_left()
             self.shake_right()
+            self.look_forward()
             self.ending_flourish()
 
     def safety_check(self):
