@@ -60,18 +60,18 @@ class Piggy(pigo.Pigo):
         ##### WRITE YOUR FIRST PROJECT HERE
         if self.safety_check():
             print("About to dance")
-            self.shake_left()
-            self.heel()
-            self.shake_right()
-            self.toe()
-            self.pause()
-            self.look_forward()
+           # self.shake_left()
+            #self.heel()
+            #self.shake_right()
+            #self.toe()
+           # self.pause()
+            #self.look_forward()
             self.walk_to_right()
-            self.turn_to_left()
-            self.shake_left()
-            self.shake_right()
-            self.look_forward()
-            self.ending_flourish()
+           # self.turn_to_left()
+            #self.shake_left()
+           # self.shake_right()
+            #self.look_forward()
+            #self.ending_flourish()
 
     def safety_check(self):
         self.servo(self.MIDPOINT)  # look straight ahead
