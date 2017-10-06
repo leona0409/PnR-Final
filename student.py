@@ -128,6 +128,11 @@ class Piggy(pigo.Pigo):
         """subroutine of dance method"""
         self.servo(77)
 
+    def ending_flourish(self):
+        """subroutine of dance method"""
+        #spin around multiple times
+        for x in range(3):
+            self.encR(18)
 
 
     def nav(self):
