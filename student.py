@@ -40,7 +40,7 @@ class Piggy(pigo.Pigo):
         ## This is a DICTIONARY, it's a list with custom index values
         # You may change the menu if you'd like to add an experimental method
         menu = {"n": ("Navigate forward", self.nav),
-                "d": ("Dance", self.dance),
+                "d": ("Dance", self.cotton_eye_joe),
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
@@ -54,7 +54,7 @@ class Piggy(pigo.Pigo):
         menu.get(ans, [None, error])[1]()
 
     # YOU DECIDE: How does your GoPiggy dance?
-    def dance(self):
+    def cotton_eye_joe(self):
         """executes a series of methods that add up to a compound dance"""
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
@@ -102,6 +102,7 @@ class Piggy(pigo.Pigo):
 
     def toe(self):
         """subroutine of dance method"""
+        # makes the robot go forward
         for x in range(3):
             self.encB(10)
 
@@ -114,7 +115,7 @@ class Piggy(pigo.Pigo):
     def turn_to_left(self):
         """subroutine of dance method"""
         for x in range(4):
-            self.encL(18)
+            self.encL(17)
             self.encF(20)
 
     def pause(self):
