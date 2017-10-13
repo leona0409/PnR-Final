@@ -157,6 +157,7 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         for x in range(20):
             if self.is_clear():
+                self.servo(self.MIDPOINT)
                 self.cruise()
             else:
                 self.encR(2)
