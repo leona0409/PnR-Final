@@ -155,11 +155,13 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
-        while True:
+        for x in range(20):
             if self.is_clear():
                 self.cruise()
             else:
                 self.encR(10)
+    
+
 
 
     def cruise(self):
@@ -168,7 +170,7 @@ class Piggy(pigo.Pigo):
         print("about to drive forward")
         while self.dist() > self.SAFE_STOP_DIST:
             time.sleep(.1)
-        
+
 
 ####################################################
 ############### STATIC FUNCTIONS
