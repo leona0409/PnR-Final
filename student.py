@@ -175,7 +175,7 @@ class Piggy(pigo.Pigo):
         """scans and estimates the number of obstacles within sight"""
         self.wide_scan(count=5)
         found_something = False
-        counter = 0
+        counter = 1
         threshold = 300
         for distance in self.scan:
             if distance and distance < threshold and not found_something:
@@ -184,7 +184,7 @@ class Piggy(pigo.Pigo):
             if distance and distance > threshold and found_something:
                 found_something = False
                 counter += 1
-        print("\n-------I see %d objects------\n" % counter)
+        print("\n-------I see %d object(s)------\n" % counter)
         #Add in a 360 rotation
         #find the area that has the widest gap and turn robot to that gap
 
