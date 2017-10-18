@@ -41,6 +41,7 @@ class Piggy(pigo.Pigo):
         # You may change the menu if you'd like to add an experimental method
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.cotton_eye_joe),
+                "o": ("Obstacle count", self.obstacle_count),
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
@@ -162,15 +163,32 @@ class Piggy(pigo.Pigo):
             else:
                 self.encR(2)
 
-
-
-
     def cruise(self):
         """drive straight while path is clear"""
         self.fwd()
         print("about to drive forward")
         while self.dist() > self.SAFE_STOP_DIST:
             time.sleep(.1)
+
+
+    def obstacle_count(self):
+        """scans and estimates the number of obstacles within sight"""
+        self.wide_scan()
+        for distance in self.scan:
+            pass
+        found_something = False
+        counter = 0
+        threshold = 200
+        for dis in self.scan:
+            if distance and distance < threshold and not found_something:
+                found_something = True
+                print("Object #%d found, I think" % counter)
+            if distance and distance > threshold and found_something:
+                found_something = False
+                counter += 1
+        print("\n-------I see %d objects-----\n" % counter)
+        #Add in a 360 rotation
+
 
 
 ####################################################
