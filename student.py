@@ -186,7 +186,7 @@ class Piggy(pigo.Pigo):
                     found_something = False
                     counter += 1
             print("\n-------I see %d object(s)------\n" % counter)
-            self.encR(4)
+            self.encR(8)
 
         #Add in a 360 rotation
         #find the area that has the widest gap and turn robot to that gap
