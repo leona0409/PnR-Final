@@ -173,11 +173,11 @@ class Piggy(pigo.Pigo):
 
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
-        self.wide_scan()
+        self.wide_scan(count=5)
         found_something = False
         counter = 0
         threshold = 300
-        for dis in self.scan:
+        for distance in self.scan:
             if distance and distance < threshold and not found_something:
                 found_something = True
                 print("Object #%d found, I think" % counter)
