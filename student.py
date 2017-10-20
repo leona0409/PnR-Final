@@ -175,7 +175,7 @@ class Piggy(pigo.Pigo):
         for x in range(4):
             counter += self.obstacle_count()
             self.encR(6)
-        print(counter)
+        print("There are",counter, "objects total")
 
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
