@@ -170,27 +170,28 @@ class Piggy(pigo.Pigo):
         while self.dist() > self.SAFE_STOP_DIST:
             time.sleep(.1)
 
+    def full_obstacle_count(self):
+        counter = 0
+        for x in range(4):
+            counter += self.obstacle_count()
+            self.encR(6)
+            print(counter)
 
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
-        for x in range(4):
-            self.wide_scan(count=5)
-            found_something = False
-            counter = 1
-            threshold = 300
-            for distance in self.scan:
-                if distance and distance < threshold and not found_something:
-                    found_something = True
-                    print("Object #%d found, I think" % counter)
-                if distance and distance > threshold and found_something:
-                    found_something = False
-                    counter += 1
-            print("\n-------I see %d object(s)------\n" % counter)
-            self.encR(6)
-
-        #Add in a 360 rotation
-        #find the area that has the widest gap and turn robot to that gap
-
+        self.wide_scan(count=5)
+        found_something = False
+        counter = 0
+        threshold = 60
+        for distance in self.scan:
+            if distance and distance < threshold and not found_something:
+                found_something = True
+                counter += 1
+                print("Object #%d found, I think" % counter)
+            if distance and distance > threshold and found_something:
+                found_something = False
+        print("\n-------I see %d object(s)------\n" % counter)
+        return counter
 
 
 ####################################################
