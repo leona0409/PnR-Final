@@ -175,7 +175,7 @@ class Piggy(pigo.Pigo):
         for x in range(4):
             counter += self.obstacle_count()
             self.encR(6)
-        print("\n-------I see %d object(s)total------\n" % counter)
+        print("\n-------I see %d object(s) total------\n" % counter)
 
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
@@ -193,6 +193,14 @@ class Piggy(pigo.Pigo):
                     found_something = False
             print("\n-------I see %d object(s)------\n" % counter)
             return counter
+
+    def move_to_open_area(self):
+        """robot scans around itself and moves to the largest open area"""
+        self.full_obstacle_count()
+        for x in range(65, 115):
+            if self.scan[x] > 60:
+                self.fwd(20)
+                self.stop()
 
 
 ####################################################
