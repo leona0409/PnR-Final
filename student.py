@@ -160,6 +160,7 @@ class Piggy(pigo.Pigo):
         self.full_obstacle_count()
         for x in range(65, 115):
             if self.scan[x] > 60:
+                self.encR(x)
                 self.fwd(20)
 
     def cruise(self):
