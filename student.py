@@ -41,7 +41,7 @@ class Piggy(pigo.Pigo):
         # You may change the menu if you'd like to add an experimental method
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.cotton_eye_joe),
-                "o": ("Obstacle Count", self.full_obstacle_count()),
+                "o": ("Obstacle Count", self.full_obstacle_count),
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
@@ -160,6 +160,7 @@ class Piggy(pigo.Pigo):
         self.full_obstacle_count()
         for x in range(65, 115):
             if self.scan[x] > 60:
+                self.servo(77)
                 self.encR(x)
                 self.fwd(20)
 
