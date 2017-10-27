@@ -159,9 +159,9 @@ class Piggy(pigo.Pigo):
         """robot scans around itself and moves to the largest open area"""
         self.full_obstacle_count()
         for x in range(0, 10):
-            if self.scan[x] > 60:
+            if self.dist(scan[x]) > 60:
                 self.servo(x)
-                self.encR(3)
+                self.encR(x)
                 self.cruise()
 
     def cruise(self):
