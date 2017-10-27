@@ -156,12 +156,11 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
-        for x in range(20):
-            if self.is_clear():
-                self.servo(self.MIDPOINT)
-                self.cruise()
-            else:
-                self.encR(2)
+        """robot scans around itself and moves to the largest open area"""
+        self.full_obstacle_count()
+        for x in range(65, 115):
+            if self.scan[x] > 60:
+                self.fwd(20)
 
     def cruise(self):
         """drive straight while path is clear"""
@@ -194,13 +193,7 @@ class Piggy(pigo.Pigo):
             print("\n-------I see %d object(s)------\n" % counter)
             return counter
 
-    def move_to_open_area(self):
-        """robot scans around itself and moves to the largest open area"""
-        self.full_obstacle_count()
-        for x in range(65, 115):
-            if self.scan[x] > 60:
-                self.fwd(20)
-
+                
 
 ####################################################
 ############### STATIC FUNCTIONS
