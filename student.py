@@ -158,7 +158,7 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         """robot scans around itself and moves to the largest open area"""
         self.full_obstacle_count()
-        for x in range(65, 115):
+        for x in range(5):
             if self.scan[x] > 60:
                 self.servo(77)
                 self.encR(x)
