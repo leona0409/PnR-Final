@@ -180,8 +180,8 @@ class Piggy(pigo.Pigo):
 
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
-        for x in range(85, 95):
-            self.wide_scan(count=5)
+        for x in range(1):
+            self.narrow_scan(count=5)
             found_something = False
             counter = 0
             threshold = 60
@@ -194,6 +194,26 @@ class Piggy(pigo.Pigo):
                     found_something = False
             print("\n-------I see %d object(s)------\n" % counter)
             return counter
+
+        def narrow_scan(self, count=2):
+            """moves servo 120 degrees and fills scan array, default count=2"""
+            self.flush_scan()
+            for x in range(self.MIDPOINT - 30, self.MIDPOINT + 30, count):
+                servo(x)
+                time.sleep(.1)
+                scan1 = us_dist(15)
+                time.sleep(.1)
+                # double check the distance
+                scan2 = us_dist(15)
+                # if I found a different distance the second time....
+                if abs(scan1 - scan2) > 2:
+                    scan3 = us_dist(15)
+                    time.sleep(.1)
+                    # take another scan and average the three together
+                    scan1 = (scan1 + scan2 + scan3) / 3
+                self.scan[x] = scan1
+                print("Degree: " + str(x) + ", distance: " + str(scan1))
+                time.sleep(.01)
 
                 
 
