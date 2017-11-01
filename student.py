@@ -163,7 +163,7 @@ class Piggy(pigo.Pigo):
            self.cruise()
         else:
             while True:
-                self.encR(3)
+                self.encR(2)
                 time.sleep(.5)
                 if (self.dist() > self.SAFE_STOP_DIST):
                     self.cruise()
