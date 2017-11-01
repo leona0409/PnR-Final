@@ -158,6 +158,7 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         #robot scans around itself and moves to the largest open area
         self.full_obstacle_count()
+        self.servo(77)
         if (self.dist() < self.SAFE_STOP_DIST):
            self.cruise()
         else:
