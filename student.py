@@ -156,7 +156,7 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
-        """robot scans around itself and moves to the largest open area"""
+        #robot scans around itself and moves to the largest open area
         self.full_obstacle_count()
         for x in range(0, 10):
             if self.dist(scan[x]) > 60:
@@ -175,7 +175,7 @@ class Piggy(pigo.Pigo):
         counter = 0
         for x in range(4):
             counter += self.obstacle_count()
-            self.encR(6)
+            self.encR(9)
         print("\n-------I see %d object(s) total------\n" % counter)
 
     def obstacle_count(self):
