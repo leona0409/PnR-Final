@@ -158,13 +158,14 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         #robot scans around itself and moves to the largest open area
         self.full_obstacle_count()
-        while True:
-            if self.is_clear():
-                self.cruise()
-            else:
-                self.servo(self.dist(scan[x]))
-                self.encR(x)
-                self.cruise()
+        if (self.dist() < self.SAFE_STOP_DIST):
+           self.cruise()
+        else:
+            for x in range(10):
+                self.encR(3)
+                time.sleep(.5)
+                if (self.dist() < self.SAFE_STOP_DIST):
+                    self.cruise()
 
     def cruise(self):
         """drive straight while path is clear"""
