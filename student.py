@@ -162,10 +162,10 @@ class Piggy(pigo.Pigo):
         if (self.dist() < self.SAFE_STOP_DIST):
            self.cruise()
         else:
-            for x in range(10):
+            while True:
                 self.encR(3)
                 time.sleep(.5)
-                if (self.dist() < self.SAFE_STOP_DIST):
+                if (self.dist() > self.SAFE_STOP_DIST):
                     self.cruise()
 
     def cruise(self):
