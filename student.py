@@ -181,15 +181,16 @@ class Piggy(pigo.Pigo):
         #robot scans around itself and moves to the largest open area
         self.full_obstacle_count()
         self.servo(self.MIDPOINT)
-        if (self.dist() < self.SAFE_STOP_DIST):
-           self.cruise()
-        else:
-            while True:
+        while True:
+            if (self.dist() < self.SAFE_STOP_DIST):
+                self.cruise()
+                self.restore_heading()
+            else:
                 self.encR(2)
                 time.sleep(.5)
                 if (self.dist() > self.SAFE_STOP_DIST):
                     self.cruise()
-                    self.restore_heading()
+                self.restore_heading()
 
     def cruise(self):
         """drive straight while path is clear"""
