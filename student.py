@@ -150,6 +150,24 @@ class Piggy(pigo.Pigo):
             self.encL(6)
             self.servo(100)
 
+    def restore_heading(self):
+        """
+        Uses self.turn_track to reorient to original heading
+        """
+        print("Restoring heading!")
+        if self.turn_track > 0:
+            self.encL(abs(self.turn_track))
+        elif self.turn_track < 0:
+            self.encR(abs(self.turn_track))
+
+    def test_restore_heading(self):
+        self.encR(5)
+        self.encL(15)
+        self.encR(10)
+        self.encR(10)
+        self.encL(7)
+        self.restore_heading()
+
     def nav(self):
         """auto pilots and attempts to maintain original heading"""
         logging.debug("Starting the nav method")
@@ -167,6 +185,10 @@ class Piggy(pigo.Pigo):
                 time.sleep(.5)
                 if (self.dist() > self.SAFE_STOP_DIST):
                     self.cruise()
+                else:
+                    self.encL(4)
+                    if (self.dist() > self.SAFE_STOP_DIST):
+                        self.cruise()
 
     def cruise(self):
         """drive straight while path is clear"""
