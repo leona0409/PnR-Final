@@ -191,13 +191,14 @@ class Piggy(pigo.Pigo):
                 if self.is_clear():
                     #if path after turning right is clear, robot will cruise
                     self.cruise()
-                else:
+                    self.restore_heading()
+                #else:
                     #robot backs up a bit before turning left and looking for
-                    self.encB(5)
-                    self.encL(4)
-                    if self.is_clear():
-                        self.cruise()
-                        self.restore_heading()
+                    #self.encB(5)
+                    #self.encL(4)
+                    #if self.is_clear():
+                        #self.cruise()
+                        #self.restore_heading()
 
     def cruise(self):
         """drive straight while path is clear"""
