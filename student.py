@@ -161,7 +161,6 @@ class Piggy(pigo.Pigo):
         elif self.turn_track < 0:
             self.encR(abs(self.turn_track))
 
-
     def test_restore_heading(self):
         self.set_speed(100, 100)
         self.encR(5)
@@ -182,14 +181,17 @@ class Piggy(pigo.Pigo):
         self.full_obstacle_count()
         self.servo(self.MIDPOINT)
         while True:
-            if (self.dist() < self.SAFE_STOP_DIST):
+            if self.is_clear():
                 self.cruise()
             else:
                 self.encR(2)
                 time.sleep(.5)
-                if (self.dist() > self.SAFE_STOP_DIST):
+                if self.is_clear():
                     self.cruise()
-            self.restore_heading()
+                else:
+                    self.encL(4)
+                    self.cruise()
+                    self.restore_heading()
 
     def cruise(self):
         """drive straight while path is clear"""
