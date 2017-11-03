@@ -43,6 +43,7 @@ class Piggy(pigo.Pigo):
                 "d": ("Dance", self.cotton_eye_joe),
                 "o": ("Obstacle Count", self.full_obstacle_count),
                 "c": ("Calibrate", self.calibrate),
+                "t": ("Teat restore heading", self.test_restore_heading()),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
                 }
