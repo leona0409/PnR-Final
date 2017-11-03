@@ -43,7 +43,7 @@ class Piggy(pigo.Pigo):
                 "d": ("Dance", self.cotton_eye_joe),
                 "o": ("Obstacle Count", self.full_obstacle_count),
                 "c": ("Calibrate", self.calibrate),
-                "t": ("Teat restore heading", self.test_restore_heading()),
+                "t": ("Teat restore heading", self.test_restore_heading),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
                 }
@@ -186,10 +186,12 @@ class Piggy(pigo.Pigo):
                 time.sleep(.5)
                 if (self.dist() > self.SAFE_STOP_DIST):
                     self.cruise()
+                    self.restore_heading()
                 else:
                     self.encL(4)
                     if (self.dist() > self.SAFE_STOP_DIST):
                         self.cruise()
+                        self.restore_heading()
 
     def cruise(self):
         """drive straight while path is clear"""
