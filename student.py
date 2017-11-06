@@ -202,6 +202,10 @@ class Piggy(pigo.Pigo):
                     #if self.is_clear():
                         #self.cruise()
                         #self.restore_heading()
+            #else:
+                #self.servo(self.scan > 30)
+                #self.encR(self.turn_track)
+
 
     def cruise(self):
         """drive straight while path is clear"""
