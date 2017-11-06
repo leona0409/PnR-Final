@@ -183,9 +183,11 @@ class Piggy(pigo.Pigo):
         while True:
             #if path is clear, robot will cruise
             if self.is_clear():
+                self.servo(self.MIDPOINT)
                 self.cruise()
             else:
                 #if path is not clear, robot will turn right
+                self.servo(self.MIDPOINT)
                 self.encR(2)
                 time.sleep(.5)
                 if self.is_clear():
