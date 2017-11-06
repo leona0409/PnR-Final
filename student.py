@@ -181,31 +181,29 @@ class Piggy(pigo.Pigo):
         self.full_obstacle_count()
         self.servo(self.MIDPOINT)
         while True:
-            #if path is clear, robot will cruise
-            if self.is_clear():
+            if self.is_clear:
                 self.servo(self.MIDPOINT)
-                self.cruise()
+                self.fwd(10)
             else:
-                #if path is not clear, robot will turn right
-                self.servo(self.MIDPOINT)
-                self.encR(2)
-                time.sleep(.5)
-                if self.is_clear():
-                    #if path after turning right is clear, robot will cruise
-                    self.servo(70)
-                    self.cruise()
-                    self.restore_heading()
-                #else:
-                    #robot backs up a bit before turning left and looking for
-                    #self.encB(5)
-                    #self.encL(4)
-                    #if self.is_clear():
-                        #self.cruise()
-                        #self.restore_heading()
-            #else:
-                #self.servo(self.scan > 30)
-                #self.encR(self.turn_track)
+                self.servo(self.dist(scan[x]))
+                self.encR(360/x)
+                self.fwd(10)
 
+        #while True:
+            #if path is clear, robot will cruise
+            #if self.is_clear():
+                #self.servo(self.MIDPOINT)
+                #self.fwd(10)
+            #else:
+                #if path is not clear, robot will turn right
+                #self.servo(self.MIDPOINT)
+                #self.encR(2)
+                #time.sleep(.5)
+               # if self.is_clear():
+                    #if path after turning right is clear, robot will cruise
+                    #self.servo(70)
+                    #self.fwd(10)
+                    #self.restore_heading()
 
     def cruise(self):
         """drive straight while path is clear"""
