@@ -192,7 +192,7 @@ class Piggy(pigo.Pigo):
                 time.sleep(.5)
                 if self.is_clear():
                     #if path after turning right is clear, robot will cruise
-                    self.servo(self.MIDPOINT)
+                    self.servo(70)
                     self.cruise()
                     self.restore_heading()
                 #else:
