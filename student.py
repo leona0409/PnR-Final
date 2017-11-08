@@ -180,6 +180,7 @@ class Piggy(pigo.Pigo):
         #robot scans around itself and moves to the largest open area
         self.full_obstacle_count()
         self.servo(self.MIDPOINT)
+        self.restore_heading()
         while True:
             #if path is clear, robot will cruise
             if self.is_clear():
@@ -188,7 +189,7 @@ class Piggy(pigo.Pigo):
             else:
                 #if path is not clear, robot will turn right
                 self.servo(self.MIDPOINT)
-                self.encR(2)
+                self.encR(4)
                 time.sleep(.5)
                 if self.is_clear():
                     #if path after turning right is clear, robot will cruise
