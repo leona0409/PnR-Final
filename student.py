@@ -197,14 +197,15 @@ class Piggy(pigo.Pigo):
                         self.servo(self.MIDPOINT)
                         self.cruise()
                         self.restore_heading()
-                for x in range(3):
-                    self.servo(self.MIDPOINT)
-                    self.encL(4)
-                    time.sleep(.5)
-                    if self.is_clear():
-                        self.servo(self.MIDPOINT)
-                        self.cruise()
+                    else:
                         self.restore_heading()
+                        self.servo(self.MIDPOINT)
+                        self.encL(4)
+                        time.sleep(.5)
+                        if self.is_clear():
+                            self.servo(self.MIDPOINT)
+                            self.cruise()
+                            self.restore_heading()
 
     def cruise(self):
         """drive straight while path is clear"""
