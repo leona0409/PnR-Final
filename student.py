@@ -214,9 +214,9 @@ class Piggy(pigo.Pigo):
 
     def cruise(self):
         """drive straight while path is clear"""
-        self.fwd()
         print("about to drive forward")
         while self.dist() > self.SAFE_STOP_DIST:
+            self.fwd()
             time.sleep(.1)
 
     def full_obstacle_count(self):
