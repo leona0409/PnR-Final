@@ -218,7 +218,7 @@ class Piggy(pigo.Pigo):
                 self.restore_heading()
 
     def smooth_turn(self):
-        self.right_rot()
+        self.encR()
         start = datetime.datetime.utcnow()
         while True:
             if self.dist() > 100:
