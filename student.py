@@ -42,7 +42,7 @@ class Piggy(pigo.Pigo):
         ## This is a DICTIONARY, it's a list with custom index values
         # You may change the menu if you'd like to add an experimental method
         menu = {"n": ("Navigate forward", self.nav),
-                "d": ("Dance", self.cotton_eye_joe),
+                "d": ("Dance", self.smooth_turn()),
                 "o": ("Obstacle Count", self.full_obstacle_count),
                 "c": ("Calibrate", self.calibrate),
                 "t": ("Test restore heading", self.test_restore_heading),
