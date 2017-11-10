@@ -1,5 +1,6 @@
 import pigo
 import time  # import just in case students need
+import datetime
 import random
 
 # setup logs
@@ -16,6 +17,7 @@ class Piggy(pigo.Pigo):
     def __init__(self):
         """The robot's constructor: sets variables and runs menu loop"""
         print("I have been instantiated!")
+        self.start_time = datetime.datetime.utcnow()
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 77
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
@@ -177,6 +179,9 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
+        right_now = datetime.datetime.utcnow()
+        difference = (right_now - self.start_time).seconds
+        print ("It took you %d seconds to run this" % difference)
         #robot scans around itself and moves to the largest open area
         #self.full_obstacle_count()
         self.servo(self.MIDPOINT)
@@ -211,6 +216,18 @@ class Piggy(pigo.Pigo):
                                 self.cruise()
                                 time.sleep(2)
                 self.restore_heading()
+
+    def smooth_turn(self):
+        self.right_rot()
+        start = datetime.datetime.utcnow()
+        while True:
+            if self.dist() > 100:
+                self.stop()
+                print("I think I've found a good path")
+            elif datetime.datetime.utcnow() - start_> datetime.timedelta(seconds=1):
+                self.stop()
+                print("I give up.")
+            time.sleep(.2)
 
     def cruise(self):
         """drive straight while path is clear"""
