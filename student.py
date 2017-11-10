@@ -234,7 +234,7 @@ class Piggy(pigo.Pigo):
         print("about to drive forward")
         while self.dist() > self.SAFE_STOP_DIST:
             self.fwd()
-            time.sleep(.1)
+            time.sleep(.05)
 
     def full_obstacle_count(self):
         counter = 0
@@ -267,7 +267,6 @@ def error():
     """records general, less specific error"""
     logging.error("ERROR")
     print('ERROR')
-
 
 def quit_now():
     """shuts down app"""
