@@ -193,27 +193,43 @@ class Piggy(pigo.Pigo):
                 self.cruise()
             else:
                 #if path is not clear, robot will turn right until it finds a clear path for 5 times
-                self.servo(self.MIDPOINT)
-                self.encR(4)
-                time.sleep(1)
+                self.check_right()
                 if self.is_clear():
                         #if path after turning right is clear, robot will cruise
                     self.servo(self.MIDPOINT)
                     self.cruise()
                 else:
-                    #if path after turning right is not clear, robot will turn back to its midpoint
-                    print("Path to the right is now clear, turning left.")
-                    time.sleep(3)
-                    self.restore_heading()
-                    #robot will turn left and try to find a clear path
-                    self.servo(self.MIDPOINT)
-                    self.encL(4)
-                    time.sleep(1)
+                    #if path after turning right is not clear, robot will turn right one more time to check
+                    self.check_right()
                     if self.is_clear():
                         self.servo(self.MIDPOINT)
                         self.cruise()
-                        time.sleep(2)
-                self.restore_heading()
+                    else:
+                        #if path after checking right twice is not clear, robot will return to midpoint
+                        print("Path to the right is now clear, turning left.")
+                        time.sleep(3)
+                        self.restore_heading()
+                        #robot will turn left and try to find a clear path
+                        if self.is_clear():
+                            self.servo(self.MIDPOINT)
+                            self.cruise()
+                            time.sleep(2)
+                        else:
+                            self.check_left()
+                            if self.is_clear():
+                                self.servo(self.MIDPOINT)
+                                self.cruise()
+
+    def check_right(self):
+        self.servo(self.MIDPOINT)
+        self.encR(4)
+        time.sleep(1)
+
+    def check_left(self):
+        self.servo(self.MIDPOINT)
+        self.encL(4)
+        time.sleep(1)
+
 
     def smooth_turn(self):
         self.encR()
