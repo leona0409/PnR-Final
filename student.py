@@ -195,30 +195,31 @@ class Piggy(pigo.Pigo):
                 #if path is not clear, robot will turn right until it finds a clear path for 5 times
                 self.check_right()
                 if self.is_clear():
-                        #if path after turning right is clear, robot will cruise
-                    self.servo(self.MIDPOINT)
-                    self.cruise()
+                    #if path after turning right is clear, robot will cruise
+                    self.nav_cruise()
                 else:
                     #if path after turning right is not clear, robot will turn right one more time to check
                     self.check_right()
                     if self.is_clear():
-                        self.servo(self.MIDPOINT)
-                        self.cruise()
+                        self.nav_cruise()
                     else:
                         #if path after checking right twice is not clear, robot will return to midpoint
-                        print("Path to the right is not clear, turning left.")
+                        print("Path to the right is not clear, turning to midpoint.")
                         time.sleep(3)
                         self.restore_heading()
                         #robot will turn left and try to find a clear path
-                        self.check_left()
                         if self.is_clear():
-                            self.servo(self.MIDPOINT)
-                            self.cruise()
+                            self.nav_cruise()
                         else:
                             self.check_left()
                             if self.is_clear():
-                                self.servo(self.MIDPOINT)
-                                self.cruise()
+                                self.nav_cruise()
+                            else:
+                                self.check_left()
+                            if self.is_clear():
+                                self.nav_cruise()
+                            else:
+                                self.encB(5)
 
     def check_right(self):
         self.servo(self.MIDPOINT)
@@ -230,6 +231,9 @@ class Piggy(pigo.Pigo):
         self.encL(4)
         time.sleep(1)
 
+    def nav_cruise(self):
+        self.servo(self.MIDPOINT)
+        self.cruise()
 
     def smooth_turn(self):
         self.encR()
