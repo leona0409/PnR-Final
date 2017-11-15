@@ -206,14 +206,14 @@ class Piggy(pigo.Pigo):
                         self.cruise()
                     else:
                         #if path after checking right twice is not clear, robot will return to midpoint
-                        print("Path to the right is now clear, turning left.")
+                        print("Path to the right is not clear, turning left.")
                         time.sleep(3)
                         self.restore_heading()
                         #robot will turn left and try to find a clear path
+                        self.check_left()
                         if self.is_clear():
                             self.servo(self.MIDPOINT)
                             self.cruise()
-                            time.sleep(2)
                         else:
                             self.check_left()
                             if self.is_clear():
