@@ -182,8 +182,6 @@ class Piggy(pigo.Pigo):
         right_now = datetime.datetime.utcnow()
         difference = (right_now - self.start_time).seconds
         print ("It took you %d seconds to run this" % difference)
-        #robot scans around itself and moves to the largest open area
-        #self.full_obstacle_count()
         self.servo(self.MIDPOINT)
         self.restore_heading()
         while True:
