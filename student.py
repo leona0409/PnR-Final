@@ -183,7 +183,6 @@ class Piggy(pigo.Pigo):
         #difference = (right_now - self.start_time).seconds
         #print ("It took you %d seconds to run this" % difference)
         self.servo(self.MIDPOINT)
-        self.restore_heading()
         while True:
             #if path is clear, robot will cruise
             self.restore_heading()
