@@ -179,13 +179,14 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
-        right_now = datetime.datetime.utcnow()
-        difference = (right_now - self.start_time).seconds
-        print ("It took you %d seconds to run this" % difference)
+        #right_now = datetime.datetime.utcnow()
+        #difference = (right_now - self.start_time).seconds
+        #print ("It took you %d seconds to run this" % difference)
         self.servo(self.MIDPOINT)
         self.restore_heading()
         while True:
             #if path is clear, robot will cruise
+            self.restore_heading()
             if self.is_clear():
                 self.servo(self.MIDPOINT)
                 self.cruise()
