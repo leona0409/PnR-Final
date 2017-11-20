@@ -47,7 +47,7 @@ class Piggy(pigo.Pigo):
                 "c": ("Calibrate", self.calibrate),
                 "t": ("Test restore heading", self.test_restore_heading),
                 "s": ("Check status", self.status),
-                "q": ("Quit", quit_now)
+                "q": ("Quit", quit_now),
                 "2": ("Nav method attempt", self.nav_two)
                 }
 
