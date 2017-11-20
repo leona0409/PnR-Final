@@ -187,9 +187,10 @@ class Piggy(pigo.Pigo):
             #if path is clear, robot will cruise
             self.restore_heading()
             if self.is_clear():
-                self.servo(self.MIDPOINT)
-                self.cruise()
+                print("Path is clear, moving forward.")
+                self.nav_cruise()
             else:
+                print("Path is not clear, turning left.")
                 self.check_left()
                 if self.is_clear():
                     #if path after turning left is clear, robot will cruise
@@ -205,9 +206,11 @@ class Piggy(pigo.Pigo):
                         self.restore_heading()
                         time.sleep(2)
                         if self.is_clear():
+                            print("Path is clear, moving forward.")
                             self.nav_cruise()
                         else:
                             #if midpoint is not clear, robot will turn right and check
+                            print("Path is not clear, turning right.")
                             self.check_right()
                             if self.is_clear():
                                 self.nav_cruise()
@@ -218,6 +221,7 @@ class Piggy(pigo.Pigo):
                                     self.nav_cruise()
                                 else:
                                     #if path after turning left twice is not clear, robot will back up
+                                    print("Paths are not clear, backing up.")
                                     self.encB(5)
 
     def check_right(self):
