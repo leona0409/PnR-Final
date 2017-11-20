@@ -230,7 +230,7 @@ class Piggy(pigo.Pigo):
         right_now = datetime.datetime.utcnow()
         difference = (right_now - self.start_time).seconds
         print("It took you %d seconds to run this" % difference)
-        while self.encR(28):
+        while self.encR():
             if self.scan[x] > 50:
                 time.sleep(2)
                 self.servo(x)
