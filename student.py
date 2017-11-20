@@ -48,7 +48,9 @@ class Piggy(pigo.Pigo):
                 "t": ("Test restore heading", self.test_restore_heading),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
+                "2": ("Nav method attempt", self.nav_two)
                 }
+
         # loop and print the menu...
         for key in sorted(menu.keys()):
             print(key + ":" + menu[key][0])
@@ -224,6 +226,17 @@ class Piggy(pigo.Pigo):
                                     print("Paths are not clear, backing up.")
                                     self.encB(5)
 
+    def nav_two(self):
+        right_now = datetime.datetime.utcnow()
+        difference = (right_now - self.start_time).seconds
+        print("It took you %d seconds to run this" % difference)
+        while True:
+            self.full_obstacle_count()
+            if self.scan[x] > 50:
+                self.servo(x)
+                self.encR(x%8)
+                time.sleep(2)
+
     def check_right(self):
         self.servo(self.MIDPOINT)
         self.encR(4)
@@ -242,7 +255,7 @@ class Piggy(pigo.Pigo):
         self.encR()
         start = datetime.datetime.utcnow()
         while True:
-            if self.dist() > 100:
+            if self.dist() > 50:
                 self.stop()
                 print("I think I've found a good path.")
             elif datetime.datetime.utcnow() - start > datetime.timedelta(seconds=1):
