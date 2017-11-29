@@ -233,6 +233,7 @@ class Piggy(pigo.Pigo):
                                         else:
                                             #if path after turning left twice is not clear, robot will back up
                                             print("Paths are not clear, backing up.")
+                                            self.restore_heading()
                                             self.encB(5)
 
     def nav_two(self):
