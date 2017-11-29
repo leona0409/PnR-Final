@@ -222,11 +222,12 @@ class Piggy(pigo.Pigo):
                                 if self.is_clear():
                                     self.nav_cruise()
                                 else:
-                                    #if path after turning right is not clear, robot will turn right one more time to check
+                                    #if path after turning right is not clear, robot will turn right and check
                                     self.check_right()
                                     if self.is_clear():
                                         self.nav_cruise()
                                     else:
+                                        #if path after turning right is not clear, robot will turn right one more time
                                         self.check_right()
                                         if self.is_clear():
                                             self.nav_cruise()
