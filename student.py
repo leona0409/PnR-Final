@@ -198,33 +198,42 @@ class Piggy(pigo.Pigo):
                     #if path after turning left is clear, robot will cruise
                     self.nav_cruise()
                 else:
-                    #if path after turning left is not clear, robot will turn right one more time to check
+                    #if path after turning left is not clear, robot will turn left one more time to check
                     self.check_left()
                     if self.is_clear():
                         self.nav_cruise()
                     else:
-                        #if path after checking left twice is not clear, robot will return to midpoint
-                        print("Path to the right is not clear, turning to midpoint.")
-                        self.restore_heading()
-                        time.sleep(2)
+                        # if path after turning left is not clear, robot will turn left one more time to check
+                        self.check_left()
                         if self.is_clear():
-                            print("Path is clear, moving forward.")
                             self.nav_cruise()
                         else:
-                            #if midpoint is not clear, robot will turn right and check
-                            print("Path is not clear, turning right.")
-                            self.check_right()
+                            #if path after checking left twice is not clear, robot will return to midpoint
+                            print("Path to the left is not clear, turning to midpoint.")
+                            self.restore_heading()
+                            time.sleep(2)
                             if self.is_clear():
+                                print("Path is clear, moving forward.")
                                 self.nav_cruise()
                             else:
-                                #if path after turning right is not clear, robot will turn right one more time to check
+                                #if midpoint is not clear, robot will turn right and check
+                                print("Path is not clear, turning right.")
                                 self.check_right()
                                 if self.is_clear():
                                     self.nav_cruise()
                                 else:
-                                    #if path after turning left twice is not clear, robot will back up
-                                    print("Paths are not clear, backing up.")
-                                    self.encB(5)
+                                    #if path after turning right is not clear, robot will turn right one more time to check
+                                    self.check_right()
+                                    if self.is_clear():
+                                        self.nav_cruise()
+                                    else:
+                                        self.check_right()
+                                        if self.is_clear():
+                                            self.nav_cruise()
+                                        else:
+                                            #if path after turning left twice is not clear, robot will back up
+                                            print("Paths are not clear, backing up.")
+                                            self.encB(5)
 
     def nav_two(self):
         right_now = datetime.datetime.utcnow()
