@@ -247,7 +247,7 @@ class Piggy(pigo.Pigo):
             if self.dist() > 15:
                 print("I have found an open area.")
                 time.sleep(2)
-                self.nav_cruise()
+                self.cruise()
 
     def check_right(self):
         self.servo(self.MIDPOINT)
