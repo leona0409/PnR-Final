@@ -249,23 +249,23 @@ class Piggy(pigo.Pigo):
                 if self.is_clear():
                     #if space is clear, robot will move forward
                     print("I have found an open area.")
-                    self.cruise()
+                    self.nav_cruise()
                     #I wish the robot could check its shoulders while it is moving
             for x in range(3):
                 #turn left and cruise if open, repeats
                 self.encL(3)
-                if self.dist() > 15:
+                if self.is_clear():
                     print("I have found an open area.")
                     time.sleep(2)
-                    self.cruise()
+                    self.nav_cruise()
             self.restore_heading()
             for x in range(3):
                 #turn right and cruise if open, repeats
                 self.encR(3)
-                if self.dist() > 10:
+                if self.is_clear():
                     print("I have found an open area.")
                     time.sleep(2)
-                    self.cruise()
+                    self.nav_cruise()
             self.restore_heading()
 
     def check_right(self):
