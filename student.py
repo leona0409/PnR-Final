@@ -185,6 +185,7 @@ class Piggy(pigo.Pigo):
         #difference = (right_now - self.start_time).seconds
         #print ("It took you %d seconds to run this" % difference)
         self.servo(self.MIDPOINT)
+        #I want to make a smarter, shorter nav method
         while True:
             #if path is clear, robot will cruise
             self.restore_heading()
@@ -242,12 +243,16 @@ class Piggy(pigo.Pigo):
         difference = (right_now - self.start_time).seconds
         print("It took you %d seconds to run this" % difference)
         self.servo(self.MIDPOINT)
+        #I want to make a smarter method so that it does a full rotation, looks for widest open area while its rotating, and then picks an area that is large enough to fit through and is closest to its original heading
         while True:
             for x in range(2):
                 if self.is_clear():
+                    #if space is clear, robot will move forward
                     print("I have found an open area.")
                     self.cruise()
+                    #I wish the robot could check its shoulders while it is moving
             for x in range(3):
+                #turn left and cruise if open, repeats
                 self.encL(3)
                 if self.dist() > 15:
                     print("I have found an open area.")
@@ -255,6 +260,7 @@ class Piggy(pigo.Pigo):
                     self.cruise()
             self.restore_heading()
             for x in range(3):
+                #turn right and cruise if open, repeats
                 self.encR(3)
                 if self.dist() > 10:
                     print("I have found an open area.")
