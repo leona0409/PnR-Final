@@ -248,14 +248,14 @@ class Piggy(pigo.Pigo):
                     print("I have found an open area.")
                     self.cruise()
             for x in range(3):
-                self.encR(3)
+                self.encL(3)
                 if self.dist() > 15:
                     print("I have found an open area.")
                     time.sleep(2)
                     self.cruise()
             self.restore_heading()
             for x in range(3):
-                self.encL(3)
+                self.encR(3)
                 if self.dist() > 10:
                     print("I have found an open area.")
                     time.sleep(2)
