@@ -243,6 +243,10 @@ class Piggy(pigo.Pigo):
         print("It took you %d seconds to run this" % difference)
         self.servo(self.MIDPOINT)
         while True:
+            for x in range(2):
+                if self.is_clear():
+                    print("I have found an open area.")
+                    self.cruise()
             for x in range(3):
                 self.encR(3)
                 if self.dist() > 15:
@@ -252,7 +256,7 @@ class Piggy(pigo.Pigo):
             self.restore_heading()
             for x in range(3):
                 self.encL(3)
-                if self.dist() > 15:
+                if self.dist() > 10:
                     print("I have found an open area.")
                     time.sleep(2)
                     self.cruise()
