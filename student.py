@@ -241,12 +241,13 @@ class Piggy(pigo.Pigo):
         right_now = datetime.datetime.utcnow()
         difference = (right_now - self.start_time).seconds
         print("It took you %d seconds to run this" % difference)
-        while self.encR(30):
-            if self.scan[x] > 50:
-                time.sleep(2)
-                self.servo(x)
-                self.encR(x%8)
+        self.servo(self.MIDPOINT)
+        while True:
+            self.encR(3)
+            if self.dist() > 15:
                 print("I have found an open area.")
+                time.sleep(2)
+                self.nav_cruise()
 
     def check_right(self):
         self.servo(self.MIDPOINT)
