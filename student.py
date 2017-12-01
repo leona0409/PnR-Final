@@ -243,11 +243,20 @@ class Piggy(pigo.Pigo):
         print("It took you %d seconds to run this" % difference)
         self.servo(self.MIDPOINT)
         while True:
-            self.encR(3)
-            if self.dist() > 15:
-                print("I have found an open area.")
-                time.sleep(2)
-                self.cruise()
+            for x in range(3):
+                self.encR(3)
+                if self.dist() > 15:
+                    print("I have found an open area.")
+                    time.sleep(2)
+                    self.cruise()
+            self.restore_heading()
+            for x in range(3):
+                self.encL(3)
+                if self.dist() > 15:
+                    print("I have found an open area.")
+                    time.sleep(2)
+                    self.cruise()
+            self.restore_heading()
 
     def check_right(self):
         self.servo(self.MIDPOINT)
