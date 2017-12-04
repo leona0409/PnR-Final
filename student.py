@@ -240,6 +240,7 @@ class Piggy(pigo.Pigo):
 
     def nav_two(self):
         #second attempt at a nav method
+        #similar to old nav method but cleaner
         logging.debug("Starting the nav method")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
@@ -278,6 +279,7 @@ class Piggy(pigo.Pigo):
 
     def nav_three(self):
         #third attempt at a nav method
+        #circles around until it finds an open area
         self.servo(self.MIDPOINT)
         while True:
             self.encL(2)
