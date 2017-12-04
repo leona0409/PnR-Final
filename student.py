@@ -239,6 +239,10 @@ class Piggy(pigo.Pigo):
                                             self.encB(5)
 
     def nav_two(self):
+        logging.debug("Starting the nav method")
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        print("-------- [ Press CTRL + C to stop me ] --------\n")
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
         right_now = datetime.datetime.utcnow()
         difference = (right_now - self.start_time).seconds
         print("It took you %d seconds to run this" % difference)
@@ -252,19 +256,18 @@ class Piggy(pigo.Pigo):
                     self.nav_cruise()
                     #I wish the robot could check its shoulders while it is moving
             for x in range(3):
-                #turn left and cruise if open, repeats
+                #turn left and cruise if open
                 self.encL(3)
                 if self.is_clear():
-                    print("I have found an open area.")
-                    time.sleep(2)
+                    print("I have found an open area to the left.")
                     self.nav_cruise()
             self.restore_heading()
+            print("Turning back to center.")
             for x in range(3):
-                #turn right and cruise if open, repeats
+                #turn right and cruise if open
                 self.encR(3)
                 if self.is_clear():
-                    print("I have found an open area.")
-                    time.sleep(2)
+                    print("I have found an open area to the right.")
                     self.nav_cruise()
             self.restore_heading()
 
