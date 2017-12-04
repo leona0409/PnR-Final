@@ -283,8 +283,10 @@ class Piggy(pigo.Pigo):
         #circles around until it finds an open area
         self.servo(self.MIDPOINT)
         while True:
-            self.encL(2)
-            self.smart_cruise()
+            for x in range (14):
+                self.encL(2)
+                self.smart_cruise()
+            self.restore_heading()
 
     def smart_cruise(self):
         if self.is_clear():
