@@ -285,7 +285,6 @@ class Piggy(pigo.Pigo):
         while True:
             self.encL(2)
             self.smart_cruise()
-            self.restore_heading()
 
     def smart_cruise(self):
         if self.is_clear():
