@@ -48,7 +48,8 @@ class Piggy(pigo.Pigo):
                 "t": ("Test restore heading", self.test_restore_heading),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now),
-                "2": ("Nav method attempt", self.nav_two)
+                "2": ("Second nav method attempt", self.nav_two),
+                "3": ("Third nav method attempt", self.nav_three)
                 }
 
         # loop and print the menu...
