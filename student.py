@@ -270,6 +270,11 @@ class Piggy(pigo.Pigo):
                     print("I have found an open area to the right.")
                     self.nav_cruise()
             self.restore_heading()
+            for x in range(1):
+                #backs up if none of the above are clear
+                self.encB(10)
+                time.sleep(2)
+
 
     def check_right(self):
         self.servo(self.MIDPOINT)
