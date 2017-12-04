@@ -239,6 +239,7 @@ class Piggy(pigo.Pigo):
                                             self.encB(5)
 
     def nav_two(self):
+        #second attempt at a nav method
         logging.debug("Starting the nav method")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
@@ -275,6 +276,18 @@ class Piggy(pigo.Pigo):
                 self.encB(5)
                 time.sleep(2)
 
+    def nav_three(self):
+        #third attempt at a nav method
+        self.servo(self.MIDPOINT)
+        while True:
+            self.encL(2)
+            self.smart_cruise()
+            self.restore_heading()
+
+    def smart_cruise(self):
+        if self.is_clear():
+            self.servo(self.MIDPOINT)
+            self.cruise()
 
     def check_right(self):
         self.servo(self.MIDPOINT)
