@@ -272,7 +272,7 @@ class Piggy(pigo.Pigo):
             self.restore_heading()
             for x in range(1):
                 #backs up if none of the above are clear
-                self.encB(10)
+                self.encB(5)
                 time.sleep(2)
 
 
