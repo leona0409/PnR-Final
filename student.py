@@ -247,6 +247,39 @@ class Piggy(pigo.Pigo):
         self.servo(self.MIDPOINT)
         #I want to make a smarter method so that it does a full rotation, looks for widest open area while its rotating, and then picks an area that is large enough to fit through and is closest to its original heading
         while True:
+            for x in range(2):
+                if self.is_clear():
+                    #if space is clear, robot will move forward
+                    print("I have found an open area.")
+                    self.nav_cruise()
+                    #I wish the robot could check its shoulders while it is moving
+            for x in range(3):
+                #turn left and cruise if open
+                self.encL(3)
+                if self.is_clear():
+                    print("I have found an open area to the left.")
+                    self.nav_cruise()
+            print("Turning back to center.")
+            time.sleep(2)
+            self.restore_heading()
+            for x in range(3):
+                #turn right and cruise if open
+                self.encR(3)
+                if self.is_clear():
+                    print("I have found an open area to the right.")
+                    self.nav_cruise()
+            self.restore_heading()
+            for x in range(1):
+                #backs up if none of the above are clear
+                self.encB(5)
+                time.sleep(2)
+
+    def nav_three(self):
+        logging.debug("Starting the nav method")
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        self.servo(self.MIDPOINT)
+        #I want to make a smarter method so that it does a full rotation, looks for widest open area while its rotating, and then picks an area that is large enough to fit through and is closest to its original heading
+        while True:
             if self.is_clear():
                 #if space is clear, robot will move forward
                 print("I have found an open area.")
@@ -254,23 +287,13 @@ class Piggy(pigo.Pigo):
                 #I wish the robot could check its shoulders while it is moving
             while self.dist() < self.SAFE_STOP_DIST:
                 self.encL(3)
+            while self.dist() < self.SAFE_STOP_DIST:
+                self.encR()
             while self.dist() > self.HARD_STOP_DIST:
                 time.sleep(2)
                 print("---------------I have found an open area.---------------")
                 self.nav_cruise()
             print("---------------Turning back to center.---------------")
-            self.restore_heading()
-            while self.dist() < self.SAFE_STOP_DIST:
-                self.encR()
-
-    def nav_three(self):
-        #third attempt at a nav method
-        #circles around until it finds an open area
-        self.servo(self.MIDPOINT)
-        while True:
-            for x in range(14):
-                self.encL(2)
-                self.smart_cruise()
             self.restore_heading()
 
     def smart_cruise(self):
