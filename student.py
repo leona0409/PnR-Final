@@ -252,7 +252,7 @@ class Piggy(pigo.Pigo):
                 print("I have found an open area.")
                 self.nav_cruise()
                 #I wish the robot could check its shoulders while it is moving
-            while self.dist() < self.HARD_STOP_DIST:
+            while self.dist() < self.SAFE_STOP_DIST:
                     self.encL(3)
             while self.dist() > self.HARD_STOP_DIST:
                 time.sleep(2)
