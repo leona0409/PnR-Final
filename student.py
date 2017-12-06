@@ -253,7 +253,6 @@ class Piggy(pigo.Pigo):
                 self.nav_cruise()
                 #I wish the robot could check its shoulders while it is moving
             while self.dist() < self.HARD_STOP_DIST:
-                for x in range(5):
                     self.encL(3)
             while self.dist() > self.HARD_STOP_DIST:
                 time.sleep(2)
