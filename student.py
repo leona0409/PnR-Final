@@ -256,9 +256,9 @@ class Piggy(pigo.Pigo):
                     self.encL(3)
             while self.dist() > self.HARD_STOP_DIST:
                 time.sleep(2)
-                print("I have found an open area.")
+                print("---------------I have found an open area.---------------")
                 self.nav_cruise()
-            print("Turning back to center.")
+            print("---------------Turning back to center.---------------")
             self.restore_heading()
 
     def nav_three(self):
