@@ -244,11 +244,6 @@ class Piggy(pigo.Pigo):
         #similar to old nav method but cleaner
         logging.debug("Starting the nav method")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
-        print("-------- [ Press CTRL + C to stop me ] --------\n")
-        print("-----------! NAVIGATION ACTIVATED !------------\n")
-        right_now = datetime.datetime.utcnow()
-        difference = (right_now - self.start_time).seconds
-        print("It took you %d seconds to run this" % difference)
         self.servo(self.MIDPOINT)
         #I want to make a smarter method so that it does a full rotation, looks for widest open area while its rotating, and then picks an area that is large enough to fit through and is closest to its original heading
         while True:
@@ -264,8 +259,9 @@ class Piggy(pigo.Pigo):
                 if self.is_clear():
                     print("I have found an open area to the left.")
                     self.nav_cruise()
-            self.restore_heading()
             print("Turning back to center.")
+            time.sleep(2)
+            self.restore_heading()
             for x in range(3):
                 #turn right and cruise if open
                 self.encR(3)
