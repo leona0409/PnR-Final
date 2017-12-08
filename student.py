@@ -280,15 +280,17 @@ class Piggy(pigo.Pigo):
         self.servo(self.MIDPOINT)
         #I want to make a smarter method so that it does a full rotation, looks for widest open area while its rotating, and then picks an area that is large enough to fit through and is closest to its original heading
         while True:
-            if self.is_clear():
+            while self.dist() > self.HARD_STOP_DIST:
                 #if space is clear, robot will move forward
                 print("I have found an open area.")
                 self.nav_cruise()
                 #I wish the robot could check its shoulders while it is moving
-            while self.dist() < self.SAFE_STOP_DIST:
-                self.encL(3)
-            while self.dist() < self.SAFE_STOP_DIST:
-                self.encR()
+            for x in range (15):
+                if self.dist() < self.SAFE_STOP_DIST:
+                    self.encL(3)
+            for x in range (15):
+                if self.dist() < self.SAFE_STOP_DIST:
+                    self.encR()
             while self.dist() > self.HARD_STOP_DIST:
                 time.sleep(2)
                 print("---------------I have found an open area.---------------")
